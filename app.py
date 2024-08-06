@@ -7,6 +7,9 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 import streamlit as st
 
+api_key = st.secrets.openai.OPENAI_API_KEY
+
+
 def init_database(user: str, password: str, host: str, port: str, database: str) -> SQLDatabase:
   db_uri = f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}"
   return SQLDatabase.from_uri(db_uri)
